@@ -4,17 +4,27 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import { Link } from 'react-router-dom';
 import Passwordinput from '../../components/input/Passwordinput';
-
+import { validateEmail } from '../../utils/helper';
 const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-const handleLogin =async(e) =>{
-    e.preventDefault();
+    const handleLogin = async (e) => {
+        e.preventDefault();
 
+        if (!validateEmail(email)) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+        if (!password) {
+            setError("Please enter a valid email address.");
+            return;
+        }
+        setError("")
 
-};
+        // Login API call
+    };
 
 
     return (
@@ -26,7 +36,9 @@ const handleLogin =async(e) =>{
 
                     <form onSubmit={handleLogin}>
                         <h4 className="text-2xl text-center mb-8">Login</h4>
-                        <input type="text" placeholder='Email' className="input-box"
+                        <input 
+                        type="text" 
+                        placeholder='Email' className="input-box"
 
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -34,7 +46,14 @@ const handleLogin =async(e) =>{
 
 
 
-                        <Passwordinput />
+                        <Passwordinput
+
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+
+                        />
+                        {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+
                         <button type="submit" className="btn-primary">Login</button>
 
                         <p className="text-sm text-center mt-4">
