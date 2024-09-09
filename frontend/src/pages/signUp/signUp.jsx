@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Passwordinput from '../../components/input/Passwordinput';
 import {Link} from "react-router-dom";
-
+import { validateEmail } from '../../utils/helper';
 
 const SignUp = () => {
 
@@ -29,6 +29,7 @@ const handleSignUp =async (e) =>{
         return;
     }
     setError('')
+    // signUp API call
 };
 
 
