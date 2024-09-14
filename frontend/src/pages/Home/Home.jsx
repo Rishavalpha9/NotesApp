@@ -4,6 +4,8 @@ import NoteCard from '../../components/Cards/NoteCard';
 import { MdAdd } from 'react-icons/md';
 import AddEditNotes from './AddEditNotes';
 import Modal from "react-modal";
+import { useState } from 'react';
+
 
 const Home = () => {
 
@@ -43,8 +45,8 @@ onPinNote={()=>{}}
 </div>
 
 
-<button className="w-16 h-16 flex items-center justify-cneter rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={() =>{
-setOpenAddEditModal({ishown:true,type:"add",data :null});
+<button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={() =>{
+setOpenAddEditModal({isShown:true,type:"add",data :null});
 
 }}>
 
@@ -54,7 +56,7 @@ setOpenAddEditModal({ishown:true,type:"add",data :null});
 
 <Modal  isOpen={openAddEditModal.isShown}
 
-onRequestClose={()=>{}}
+onRequestClose={()=>{setOpenAddEditModal({ isShown: false, type: 'add', data: null });}}
 style={{
 
 overlay:{
@@ -73,7 +75,24 @@ className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scro
 >
 
 
-<AddEditNotes />
+<AddEditNotes 
+type={openAddEditModal.type}
+noteData={openAddEditModal.data}
+
+
+
+onClose={() =>
+
+
+  {
+    setOpenAddEditModal({isShown:false ,type:"add",data:null});
+  }
+}
+
+
+
+
+/>
 
 </Modal>
 
