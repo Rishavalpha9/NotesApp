@@ -41,11 +41,25 @@ onPinNote={()=>{}}
 
 
 />
+
+<NoteCard title="Meeting on 7th April" 
+date="3rd Apr 2024" 
+content="Meeting on 7th April Meeting on 7th April" 
+tags="#Meeting"
+isPinned={true}
+onEdit={()=>{}}
+onDelete={()=>{}}
+onPinNote={()=>{}}
+
+
+/>
+
 </div>
 </div>
 
 
-<button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={() =>{
+<button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary
+ hover:bg-blue-600 absolute right-10 bottom-10" onClick={() =>{
 setOpenAddEditModal({isShown:true,type:"add",data :null});
 
 }}>

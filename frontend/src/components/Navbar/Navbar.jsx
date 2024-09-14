@@ -2,6 +2,10 @@ import React ,{useState} from 'react';
 import ProfileInfo from '../Cards/ProfileInfo';
 import SearchBar from '../SearchBar/SearchBar';
 import { useNavigate } from 'react-router-dom';
+
+
+
+
 const Navbar = () => {
 const [searchQuery,setSearchQuery] =useState("");
 
