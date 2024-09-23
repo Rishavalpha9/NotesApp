@@ -8,7 +8,7 @@ const ProfileInfo = ({onLogout}) => {
 <div className="flex items-center gap-3">
    
                                                  
-<div className="w-12 h-12 flex items-center justify-center rounded-full text-slate-950 font-medium bg-slate-100">{getInitials("RR")}</div>
+<div className="w-12 h-12 flex items-center justify-center rounded-full text-slate-950 font-medium bg-orange-300">{getInitials("RR")}</div>
 
 
 <div>
