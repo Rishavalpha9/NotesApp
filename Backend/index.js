@@ -85,7 +85,7 @@ const user =new User({
 await user.save();
 const accessToken = jwt.sign({user},process.eventNames.ACCESS_TOKEN_SECRET,{
 
-    expiresIn:"36000m",
+    expiresIn:"1h",
 });
 
 return res.json({
@@ -102,6 +102,9 @@ return res.json({
 });
 
 
-app.listen(8000);
+// app.listen(8000);
+app.listen(8000, () => {
+    console.log("Server running on port 8000");
+  });
 
 module.exports =app;
